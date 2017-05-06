@@ -1,0 +1,11 @@
+/*  -----   css reset   ----- */
+/* to do:
+     
+      1. css reset for buttons(remove default browser styling)
+      2. 
+*/
+
+button {
+  /* insert 1 here */
+  border:none;
+}

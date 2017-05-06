@@ -1,0 +1,32 @@
+<header>
+  <h1>Todo List</h1>
+</header>
+
+<!-- filter forum topics -->
+<label class="random-topics">
+	<input type="checkbox" ng-model='$ctrl.random'/>
+	Random
+</label>
+
+<!-- login buttons -->
+<login-buttons></login-buttons>
+
+<!-- form to add new topics -->
+<div class="add-new-topic">
+	<form class="new-topic" ng-show="$ctrl.currentUser">
+		<input ng-model='$ctrl.topicName' type='text' name='text' placeholder="Topic name"/>
+		<input ng-model='$ctrl.topicTag' type='text' name='text' placeholder="Topic tag"/>
+		<button ng-click='$ctrl.addTopic($ctrl.topicName,$ctrl.topicTag)'/>
+	    Submit
+		</button>
+	</form>
+</div>
+ 
+<ul>
+	<li ng-repeat="topic in $ctrl.topics">
+	    <strong>{{topic.username}}</strong> - {{topic.name}} {{topic.tag}}
+	    <button class="delete" ng-click='$ctrl.removeTopic(topic)'>
+		    <i class="fa fa-trash-o" aria-hidden="true"></i>
+	    </button>
+    </li>
+</ul>

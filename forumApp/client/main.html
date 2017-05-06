@@ -1,0 +1,37 @@
+<head>
+    <title>forumApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+
+    <!-- normalize css -->
+    <link rel="stylesheet" href="normalize.css">
+  
+    <!-- materialize -->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+    <!-- font awesome -->
+	<script src="https://use.fontawesome.com/80d4a30795.js"></script>
+</head>
+
+<body ng-app="forumApp">
+    <div class="container">
+        <!-- <a ui-sref="home">Home</a>
+        <a ui-sref="login">Log in!</a> -->
+        <a ui-sref="home">Home</a>
+        <a ui-sref="login">Login</a>
+
+        <ui-view></ui-view>
+    </div>
+
+
+
+    <!-- leave script imports last!!! -->
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+</body>

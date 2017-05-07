@@ -1,1 +1,13 @@
-<p>adding a new topic</p>
+<h3>adding a new topic</h3>
+
+<a ui-sref="topics">Back</a>
+<!-- form to add new topics -->
+<div class="add-new-topic">
+	<form class="new-topic" ng-show="$ctrl.currentUser">
+		<input ng-model='$ctrl.topicName' type='text' name='text' placeholder="Topic name"/>
+		<input ng-model='$ctrl.topicTag' type='text' name='text' placeholder="Topic tag"/>
+		<button ng-click='$ctrl.addTopic($ctrl.topicName,$ctrl.topicTag)'/>
+	    Submit
+		</button>
+	</form>
+</div>

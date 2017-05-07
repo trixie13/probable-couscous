@@ -32,6 +32,11 @@ Meteor.methods({
 
 	'topics.remove' (topicId) {
 		check(topicId,String);
+
+		if(!Meteor.userId()) {
+			throw new Meteor.Error('not-authorized');
+			return false;
+		}
         
         //add check if userId is same as owner
 		Topics.remove(topicId);

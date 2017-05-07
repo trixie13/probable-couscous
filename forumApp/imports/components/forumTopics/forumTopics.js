@@ -8,13 +8,15 @@ import { Topics } from '../../api/topics.js';
 class ForumTopicsCtrl {
 	constructor($scope) {
 	   $scope.viewModel(this);
+       topicsCtrl = this;
+       console.log(this);
 
-       this.subscribe('topics');
+       topicsCtrl.subscribe('topics');
 
        // controller variables
-       this.random = false;
+       topicsCtrl.random = false;
 
-       this.helpers({
+       topicsCtrl.helpers({
             topics () {
                 return Topics.find({}, { 
                         sort: { createdAt: -1 }
@@ -62,48 +64,51 @@ class ForumTopicsCtrl {
     */
     removeTopic(topic){
         // Topics.remove(topic._id);
-        Meteor.call('topics.remove',topic._id);
+       
+        Meteor.call('topics.remove',topic._id, function (error) {
+            if(error) {
+                alert(error.message);
+            }
+        });
     }
 }
  
 export default angular.module('forumTopics', [
         angularMeteor,
+        'accounts.ui',
         'ui.router'
     ])
 
-    // .config(['$stateProvider'].
-    //     function($stateProvider){
-
-    //         $stateProvider
-    //             .state('topics'), {
-    //                 url: '/topics',
-    //                 component: 'forumTopics',
-    //             };
-    // })
+    .config(RoutesConfig)
 
 	.component('forumTopics', {
 
 	    templateUrl: 'imports/components/forumTopics/forumTopics.html',
 	    controller: ['$scope', ForumTopicsCtrl]
 
-    });
-
-angular.module('forumTopics')
-    .config(['$stateProvider',
-        function($stateProvider) {
-
-        //default route
-        // $urlRouterProvider
-        //  .otherwise('/topics');
-
-        $stateProvider
-            .state('add-topic', {
-                url: '/add-topic',
-                templateUrl: '/views/addtopic.html'
-            })
-        }
-    ])
+    })
 
     .run(function($state){
         //only to initialize ui.router
     });
+
+// routes -------------------------------------------
+
+RoutesConfig.$inject = ['$stateProvider','$urlRouterProvider'];
+function RoutesConfig($stateProvider,$urlRouterProvider){
+
+
+    $urlRouterProvider
+        .otherwise('/topics');
+
+    $stateProvider
+        .state('topics.add-topic', {
+            url: '/addTopic',
+            templateUrl: '/views/addtopic.html'
+        })
+
+        .state('topics.topicdetail', {
+            url: '/details',
+            templateUrl: '/views/topicdetails.html'
+        })
+};

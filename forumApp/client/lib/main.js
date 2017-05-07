@@ -2,38 +2,56 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
 import forumTopics from '/imports/components/forumTopics/forumTopics';
+import discussion from '/imports/components/discussion/discussion';
 import '/imports/startup/accounts-config.js';
+
+// module definition ------------------------------------------
  
 angular.module('forumApp', [
 		angularMeteor, 
-		forumTopics.name,
-		'accounts.ui',
+		'forumTopics',
 		'ui.router'
 	]);
 
 angular.module('forumApp')
-    .config(['$stateProvider',
-        function($stateProvider) {
+    .controller('ForumAppController',ForumAppController);
 
-    	//default route
-    	// $urlRouterProvider
-	    // 	.otherwise('/topics');
+angular.module('forumApp')
+    .config(RoutesConfig);
 
-    	$stateProvider
-    	    .state('home', {
-    	    	url: '/home',
-    	    	templateUrl: '/views/home.html'
-    	    })
-            .state('login', {
-                url: '/login',
-                templateUrl: '/views/login.html'
+
+// controller --------------------------------------------------
+
+function ForumAppController(){
+    var appCtrl = this;
+
+    appCtrl.$onInit = function () {
+
+    }
+
+}
+
+
+// routes ------------------------------------------------------
+
+RoutesConfig.$inject = ['$stateProvider','$urlRouterProvider'];
+
+function RoutesConfig($stateProvider,$urlRouterProvider){
+
+        $urlRouterProvider
+            .otherwise('/');
+
+        $stateProvider
+            .state('home', {
+                url: '/',
+                templateUrl: '/views/home.html'
+            })
+            .state('topics', {
+                url: '/topics',
+                templateUrl: '/views/topics.html',
+                controller: 'ForumAppController as appCtrl'
             });
-        }
-    ])
-
-    .run(function($state){
-    	//only to initialize ui.router
-    });
+}
 
 function onReady(){
 

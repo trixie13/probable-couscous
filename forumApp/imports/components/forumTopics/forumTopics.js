@@ -67,7 +67,8 @@ class ForumTopicsCtrl {
 }
  
 export default angular.module('forumTopics', [
-        angularMeteor
+        angularMeteor,
+        'ui.router'
     ])
 
     // .config(['$stateProvider'].
@@ -85,4 +86,24 @@ export default angular.module('forumTopics', [
 	    templateUrl: 'imports/components/forumTopics/forumTopics.html',
 	    controller: ['$scope', ForumTopicsCtrl]
 
+    });
+
+angular.module('forumTopics')
+    .config(['$stateProvider',
+        function($stateProvider) {
+
+        //default route
+        // $urlRouterProvider
+        //  .otherwise('/topics');
+
+        $stateProvider
+            .state('add-topic', {
+                url: '/add-topic',
+                templateUrl: '/views/addtopic.html'
+            })
+        }
+    ])
+
+    .run(function($state){
+        //only to initialize ui.router
     });

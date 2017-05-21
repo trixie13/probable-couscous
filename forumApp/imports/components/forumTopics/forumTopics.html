@@ -4,18 +4,24 @@
 	Random
 </label> -->
 
+
 <!-- login buttons -->
 <login-buttons></login-buttons>
 
 <hr>
-<button><a ui-sref='topics.add-topic'>Add a new topic</a></button>
+<a ui-sref='topics.add-topic'
+   class="btn">
+   <i class="fa fa-plus" aria-hidden="true"></i>
+    Add a new topic
+</a>
+
 <ui-view></ui-view>
 
 
  
 <ul>
 	<li ng-repeat="topic in $ctrl.topics"
-	    ui-sref="topics.topicdetail({{topic.id}})">
+	    ui-sref="topic-details({topicId: topic._id})">
 
 	    <strong>{{topic.username}}</strong> - {{topic.name}} {{topic.tag}}
 	    <button class="delete" ng-click='$ctrl.removeTopic(topic)'>

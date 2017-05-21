@@ -10,11 +10,17 @@ if (Meteor.isServer) {
 	Meteor.publish('topics', function topicsPublication() {
 		return Topics.find();
 	});
+
+	Meteor.publish('topic', function(id){
+		check(id, String);
+	    return Topics.find({_id: id});
+	});
 }
 
 Meteor.methods({
-	'topics.insert' (text,text) {
-		check(text,String);
+	'topics.insert' (name,tag) {
+		check(name,String);
+		check(tag,String);
 
 		//check if user is logged before adding a topic
 		if(!Meteor.userId()) {
@@ -22,8 +28,8 @@ Meteor.methods({
 		}
 
 		Topics.insert({
-			name: text,
-			tag: text,
+			name: name,
+			tag: tag,
 			createdAt: new Date(),
 			owner: Meteor.userId(),
 			username: Meteor.user().username
@@ -40,5 +46,11 @@ Meteor.methods({
         
         //add check if userId is same as owner
 		Topics.remove(topicId);
+	},
+
+	'topics.get' (topicId) {
+		check(topicId,String);
+
+		return Topics.findOne({"_id" : "4BFSsae6dd8KJPq58"});
 	}
 });

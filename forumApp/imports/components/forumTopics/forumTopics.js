@@ -9,7 +9,6 @@ class ForumTopicsCtrl {
 	constructor($scope) {
 	   $scope.viewModel(this);
        topicsCtrl = this;
-       console.log(this);
 
        topicsCtrl.subscribe('topics');
 
@@ -45,12 +44,7 @@ class ForumTopicsCtrl {
     addTopic(topicName,topicTag){
         
         console.log(topicName + " " + topicTag);
-        // Topics.insert({
-        //     name: newTopic,
-        //     createdAt: new Date,
-        //     owner: Meteor.userId(),
-        //     username: Meteor.user().username
-        // });
+    
         Meteor.call('topics.insert',topicName,topicTag)
 
         //clear form
@@ -105,10 +99,10 @@ function RoutesConfig($stateProvider,$urlRouterProvider){
         .state('topics.add-topic', {
             url: '/addTopic',
             templateUrl: '/views/addtopic.html'
-        })
+        });
 
-        .state('topics.topicdetail', {
-            url: '/details',
-            templateUrl: '/views/topicdetails.html'
-        })
+        // .state('topics.topicdetail', {
+        //     url: '/details',
+        //     templateUrl: '/views/topicdetails.html'
+        // })
 };

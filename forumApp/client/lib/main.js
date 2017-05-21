@@ -2,7 +2,8 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
 import forumTopics from '/imports/components/forumTopics/forumTopics';
-import discussion from '/imports/components/discussion/discussion';
+import topicDetails from '/imports/components/topicDetails/topic-details';
+
 import '/imports/startup/accounts-config.js';
 
 // module definition ------------------------------------------
@@ -10,6 +11,7 @@ import '/imports/startup/accounts-config.js';
 angular.module('forumApp', [
 		angularMeteor, 
 		'forumTopics',
+        'topicDetails',
 		'ui.router'
 	]);
 
@@ -51,6 +53,10 @@ function RoutesConfig($stateProvider,$urlRouterProvider){
                 templateUrl: '/views/topics.html',
                 controller: 'ForumAppController as appCtrl'
             });
+            // .state('topic-details', {
+            //     url: '/topic-details/{topicId}',
+            //     templateUrl: '/views/topicdetails.html'
+            // });
 }
 
 function onReady(){

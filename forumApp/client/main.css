@@ -8,4 +8,49 @@
 button {
   /* insert 1 here */
   border:none;
+  
 }
+
+a {
+	display: inline-block;
+	padding: 10px;
+	color: white;
+	margin-top: 30px;
+}
+
+a.deep-purple:hover {
+	background-color: #9575cd  !important; /*deep-purple lighten-2*/
+}
+
+
+
+
+
+
+
+
+
+/* -------------------------- move to homepace.css ------------*/
+
+.homepage {
+	font-family: 'Open sans';
+	text-transform: uppercase;
+	line-height: 0.9em;
+	font-weight: bold;
+
+	position: relative;
+	height: 95vh;
+}
+
+.title {
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.title span {
+	padding: 5px;
+	border-radius: 3px;
+}
+
+/* --------------------------------------------------*/

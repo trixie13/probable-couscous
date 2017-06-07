@@ -51,6 +51,6 @@ Meteor.methods({
 	'topics.get' (topicId) {
 		check(topicId,String);
 
-		return Topics.findOne({"_id" : "4BFSsae6dd8KJPq58"});
+		return Topics.findOne({"_id" : topicId});
 	}
 });

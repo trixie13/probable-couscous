@@ -1,0 +1,18 @@
+<a ui-sref="discussion({topicId: $ctrl.topicId})"
+   class="btn-floating close right"><i class="fa fa-times" aria-hidden="true"></i></a>
+
+<div ng-show="!$ctrl.currentUser">
+You can only comment to topics once logged in!
+
+Do not have an account? Sign up here!
+</div>
+
+<!-- form to add new topics -->
+<div class="add-new-comment">
+	<form class="new-coment" ng-show="$ctrl.currentUser">
+		<input ng-model='$ctrl.comment' type='text' name='text' placeholder="Your comment"/>
+		<button ng-click='$ctrl.addComment($ctrl.comment)'/>
+	    Submit
+		</button>
+	</form>
+</div>

@@ -12,9 +12,6 @@ class ForumTopicsCtrl {
 
        topicsCtrl.subscribe('topics');
 
-       // controller variables
-       topicsCtrl.random = false;
-
        topicsCtrl.helpers({
             topics () {
                 return Topics.find({}, { 

@@ -6,8 +6,8 @@
 
 
 <!-- login buttons -->
-<login-buttons></login-buttons>
-
+<!-- <login-buttons></login-buttons>
+ -->
 <hr>
 <a ui-sref='topics.add-topic'
    class="btn">
@@ -22,11 +22,25 @@
 <ul>
 	<li ng-repeat="topic in $ctrl.topics"
 	    ui-sref="topic-details({topicId: topic._id})">
+	    <div class="card topic-card">
+            <div class="card-content black-text">
 
-	    <strong>{{topic.username}}</strong> - {{topic.name}} {{topic.tag}}
-	    <button class="delete" ng-click='$ctrl.removeTopic(topic)'>
-		    <i class="fa fa-trash-o" aria-hidden="true"></i>
-	    </button>
+			   
+			    <div class="name"><h3> {{topic.name}} </h3></div>
+
+			     <div class="owner"> <span>Topic owner </span>{{topic.username}}</div>
+
+			    <div class="tags"><span> Tags</span> </div>
+			    <div class="chip">{{topic.tag}}</div>
+
+			    <button class="delete" ng-click='$ctrl.removeTopic(topic)'>
+				    <i class="fa fa-trash-o" aria-hidden="true"></i>
+				    Delete topic
+			    </button>
+
+		    </div>
+	    </div> 
+
 
     </li>
 </ul>

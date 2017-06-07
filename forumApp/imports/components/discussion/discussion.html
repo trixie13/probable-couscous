@@ -1,1 +1,36 @@
-<p>discussion.html</p>
+<h1>{{$ctrl.topic.name}}</h1>
+
+<!-- comments -->
+
+<ul>
+	<li ng-repeat="comment in $ctrl.discussions">
+	    <div class="card">
+            <div class="card-content black-text">
+	            <!-- card content -->
+			    <div class="username"> <span>Username</span> {{ comment.username }} </div>
+			    <div class="date-added"> <span>Date added</span>{{ comment.dateAdded }} </div>
+				<div class="comment"> <span>Comment</span>{{ comment.comment }} </div>
+				<!-- delete -->
+				<!-- ng-if current username = username -->
+				<!-- <button class="delete" ng-click='$ctrl.removeComment(comment)'>
+				    <i class="fa fa-trash-o" aria-hidden="true"></i>
+		        </button> -->
+			</div>
+		</div>
+	</li>
+</ul>
+
+
+<!-- add comment button -->
+<a ui-sref="discussion.add-comment"
+   class="btn">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+    Add a comment
+</a>
+
+<!-- display view -->
+<ui-view></ui-view>
+
+<div class="bottom-whitespace"></div>
+
+

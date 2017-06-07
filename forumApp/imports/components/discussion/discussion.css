@@ -1,0 +1,9 @@
+.username span,
+.date-added span,
+.comment span {
+	font-size: 1.2em;
+}
+
+.comment span{
+	display: block;
+}

@@ -1,21 +1,32 @@
-<a ui-sref="topics"
-   class="btn-floating close right"><i class="fa fa-times" aria-hidden="true"></i></a>
+<!-- <a ui-sref="topics"
+   class="btn-floating close right"><i class="fa fa-times" aria-hidden="true"></i></a> -->
 
 
-<div ng-show="!$ctrl.currentUser">
+<div ng-show="!$ctrl.currentUser" class="login-notification deep-purple lighten-4 card">
+<div class="card-content">
 You can only add new topics once logged in!
 
-Do not have an account? Sign up here!
+Do not have an account? 
+</div>
+<div class="action"><a href="/" class="waves-effect deep-purple waves-light btn pulse">Sign me up!</a>
+</div>
 </div>
 
 
 <!-- form to add new topics -->
-<div class="add-new-topic">
-	<form class="new-topic" ng-show="$ctrl.currentUser">
-		<input ng-model='$ctrl.topicName' type='text' name='text' placeholder="Topic name"/>
-		<input ng-model='$ctrl.topicTag' type='text' name='text' placeholder="Topic tag"/>
-		<button ng-click='$ctrl.addTopic($ctrl.topicName,$ctrl.topicTag)'/>
-	    Submit
-		</button>
-	</form>
+<div ng-show="$ctrl.currentUser" class="card deep-purple lighten-5">  
+    <a ui-sref="topics"
+   class="btn-floating close right"><i class="fa fa-times" aria-hidden="true"></i></a>
+
+    <div class="card-content">
+		<div class="add-new-topic">
+			<form class="new-topic" ng-show="$ctrl.currentUser">
+				<input ng-model='$ctrl.topicName' type='text' name='text' placeholder="Topic name"/>
+				<input ng-model='$ctrl.topicTag' type='text' name='text' placeholder="Topic tag"/>
+				<button ng-click='$ctrl.addTopic($ctrl.topicName,$ctrl.topicTag)' class="btn waves-effect waves-light" type="submit"/>
+			    Submit<i class="material-icons right">send</i>
+				</button>
+			</form>
+		</div>
+	</div>
 </div>

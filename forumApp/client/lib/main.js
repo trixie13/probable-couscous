@@ -3,6 +3,7 @@ import angularMeteor from 'angular-meteor';
 
 import forumTopics from '/imports/components/forumTopics/forumTopics';
 import topicDetails from '/imports/components/topicDetails/topic-details';
+import discussion from '/imports/components/discussion/discussion';
 
 import '/imports/startup/accounts-config.js';
 
@@ -12,6 +13,7 @@ angular.module('forumApp', [
 		angularMeteor, 
 		'forumTopics',
         'topicDetails',
+        'discussion',
 		'ui.router'
 	]);
 

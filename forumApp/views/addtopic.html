@@ -1,5 +1,13 @@
 <a ui-sref="topics"
-   class="btn-floating close"><i class="fa fa-times" aria-hidden="true"></i></a>
+   class="btn-floating close right"><i class="fa fa-times" aria-hidden="true"></i></a>
+
+
+<div ng-show="!$ctrl.currentUser">
+You can only add new topics once logged in!
+
+Do not have an account? Sign up here!
+</div>
+
 
 <!-- form to add new topics -->
 <div class="add-new-topic">

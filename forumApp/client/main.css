@@ -22,6 +22,97 @@ a.deep-purple:hover {
 	background-color: #9575cd  !important; /*deep-purple lighten-2*/
 }
 
+.login {
+   float: right;
+}
+
+#login-buttons a{
+   text-decoration: none;
+   color: black;
+   text-transform: uppercase;
+}
+
+#login-dropdown-list{
+	top: 100px;
+	right: 150px;
+}
+
+#login-buttons .login-close-text {
+	float: right;
+
+}
+
+#login-dropdown-list .login-form label{
+	text-transform: uppercase;
+	font-family: Roboto;
+	color: #673ab7;
+}
+
+
+#login-buttons .login-button{
+    background-color: #b2ff59;
+    border: #b2ff59;
+    width: 80%;
+    margin: 0 auto;
+    color: black;
+    text-transform: uppercase;
+    font-family: Roboto;
+
+}
+
+
+#login-buttons a#signup-link{
+	background-color: #b2ff59;
+    border: #b2ff59;
+    display: block;
+    width: 80%;
+    margin: 10px auto 0 auto;
+    color: black;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-family: Roboto;
+    float: none;
+    font-size: 0.8em;
+
+}
+#login-buttons a#signup-link:hover,
+#login-buttons a#back-to-login-link:hover,
+#login-buttons .login-button:hover{
+   background-color: #9575cd;
+   transition: color 1s;
+}
+
+
+
+
+#login-buttons a#back-to-login-link{
+	background-color: #b2ff59;
+    border: #b2ff59;
+    display: block;
+    width: 80%;
+    margin: 10px auto 0 auto;
+    color: black;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-family: Roboto;
+    float: none;
+    font-size: 0.8em;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -54,3 +145,50 @@ a.deep-purple:hover {
 }
 
 /* --------------------------------------------------*/
+/* -------------------------- move to discussion.css ------------*/
+.username span,
+.date-added span,
+.comment span {
+  font-size: 1.2em;
+  padding: 5px 10px 5px 0px;
+}
+
+.comment span{
+  display: block;
+  padding-top: 10px;
+}
+
+
+/*----------------general ---------- */
+.back-btn{
+  display: block;
+  color: black;
+}
+.back-btn button{
+  background-color: rgba(0,0,0,0);
+}
+.bottom-whitespace{
+  height: 50px;
+}
+
+
+
+/* ------------------- topics.css ----------------*/
+.topic-card{
+  cursor: pointer;
+}
+.owner span,
+.tags span {
+  font-size: 1.2em;
+  padding: 5px 10px 5px 0px;
+}
+.chip{
+  margin-top: 10px;
+}
+
+button.delete {
+  float: right;
+  background-color: rgba(0,0,0,0);
+}
+
+/*----------------------------------*/

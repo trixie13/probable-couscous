@@ -8,14 +8,14 @@
 <!-- login buttons -->
 <!-- <login-buttons></login-buttons>
  -->
-<hr>
-<a ui-sref='topics.add-topic'
+
+<!-- <a ui-sref='topics.add-topic'
    class="btn">
    <i class="fa fa-plus" aria-hidden="true"></i>
     Add a new topic
 </a>
 
-<ui-view></ui-view>
+<ui-view></ui-view> -->
 
 
  
@@ -44,3 +44,15 @@
 
     </li>
 </ul>
+
+
+<div class="add-new-topic">
+    <h3>Didn't find what you were looking for? Make your own!</h3>
+	<a ui-sref='topics.add-topic'
+	   class="btn">
+	   <i class="fa fa-plus" aria-hidden="true"></i>
+	    Add a new topic
+	</a>
+
+	<ui-view></ui-view>
+</div>

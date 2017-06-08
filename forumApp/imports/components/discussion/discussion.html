@@ -7,14 +7,24 @@
 	    <div class="card">
             <div class="card-content black-text">
 	            <!-- card content -->
-			    <div class="username"> <span>Username</span> {{ comment.username }} </div>
-			    <div class="date-added"> <span>Date added</span>{{ comment.dateAdded }} </div>
-				<div class="comment"> <span>Comment</span>{{ comment.comment }} </div>
+			    <div class="username">
+				    <i class="fa fa-user" aria-hidden="true"></i>
+				    <span>{{ comment.username }}</span>
+			    </div>
+			    <div class="date-added">
+				    <i class="fa fa-calendar" aria-hidden="true"></i><span>{{ comment.dateAdded }}</span>
+			    </div>
+			    <hr>
+				<div class="comment">
+					<i class="fa fa-comment" aria-hidden="true"></i><span>Commented</span>
+					<div>{{ comment.comment }}</div>
+				</div>
 				<!-- delete -->
 				<!-- ng-if current username = username -->
-				<!-- <button class="delete" ng-click='$ctrl.removeComment(comment)'>
+				<button class="discussion delete" ng-click='$ctrl.removeComment(comment)'>
 				    <i class="fa fa-trash-o" aria-hidden="true"></i>
-		        </button> -->
+				    Delete comment
+		        </button>
 			</div>
 		</div>
 	</li>

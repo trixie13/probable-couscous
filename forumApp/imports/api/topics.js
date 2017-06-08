@@ -40,11 +40,16 @@ Meteor.methods({
 		check(topicId,String);
 
 		if(!Meteor.userId()) {
-			throw new Meteor.Error('not-authorized');
+			throw new Meteor.Error('Please login to create/delete topics!');
 			return false;
 		}
         
         //add check if userId is same as owner
+        var topicToDelete = Topics.findOne({_id: topicId});
+        if(topicToDelete.username != Meteor.user().username){
+        	throw new Meteor.Error('You can only delete topics created by you!');
+        	return false;
+        }
 		Topics.remove(topicId);
 	},
 

@@ -1,18 +1,35 @@
 <h1>{{$ctrl.topic.name}}</h1>
 
 
-<div class="card deep-purple lighten-4">
+<div class="card deep-purple deep-purple lighten-5">
     <!-- card content -->
     <div class="card-content black-text">
-	    <p><b>topic name</b> {{$ctrl.topic.name}}</p>
+        <div class="topic-name">
+            <div>Name</div>
+            <div class="info">{{$ctrl.topic.name}}</div>
+        </div>
+        <div class="tags">
+            <div>Tags</div>
+            <div class="chip info">{{$ctrl.topic.tag}}</div>
+        </div>
+        <div class="owner">
+            <div><i class="fa fa-user" aria-hidden="true"></i>Owner</div>
+            <div class="info">{{$ctrl.topic.username}}</div>
+        </div>
+        <div class="created-at">
+            <div><i class="fa fa-calendar" aria-hidden="true"></i></div>
+            <div class="info">{{$ctrl.topic.createdAt}}</div>
+        </div>
+	 <!--    <p><b>topic name</b> {{$ctrl.topic.name}}</p>
 		<p><b>topic tag</b> {{$ctrl.topic.tag}}</p>
 		<p><b>topic created at</b> {{$ctrl.topic.createdAt}}</p>
-		<p><b>topic owner</b> {{$ctrl.topic.username}}</p>
+		<p><b>topic owner</b> {{$ctrl.topic.username}}</p> -->
     </div>
     <!-- card action -->
-    <div class="card-action">
-        <a ui-sref="discussion({topicId: $ctrl.topic._id})">
-		  See topic comments
+    <div class="card-action ">
+        <a ui-sref="discussion({topicId: $ctrl.topic._id})" class="waves-effect waves-light btn">
+		  See discussion
+          <i class="fa fa-comments-o" aria-hidden="true"></i>
 		</a>  
     </div>
 </div>    

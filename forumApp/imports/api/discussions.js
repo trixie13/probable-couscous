@@ -41,7 +41,7 @@ Meteor.methods({
 	'discussions.addComment' (topicId,username,comment){
 		check(comment,String);
 		if(!Meteor.userId()) {
-			throw new Meteor.Error('You have to be logged in to post comments!');
+			throw new Meteor.Error('Please login to post comments!');
 
 		}
 		Discussions.insert({
@@ -59,11 +59,18 @@ Meteor.methods({
 		check(discId,String);
 
 		if(!Meteor.userId()) {
-			throw new Meteor.Error('not-authorized');
+			throw new Meteor.Error('Please login to create/delete topics!');
 			return false;
 		}
         
         //add check if userId is same as owner
+        //add check if userId is same as owner
+        var commentToDelete = Discussions.findOne({_id: discId});
+        if(commentToDelete.username != Meteor.user().username){
+        	throw new Meteor.Error('You can only delete comments posted by you!');
+        	return false;
+        }
+
 		Discussions.remove(discId);
 	},
 

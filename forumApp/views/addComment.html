@@ -1,18 +1,29 @@
-<a ui-sref="discussion({topicId: $ctrl.topicId})"
-   class="btn-floating close right"><i class="fa fa-times" aria-hidden="true"></i></a>
 
-<div ng-show="!$ctrl.currentUser">
+
+<div ng-show="!$ctrl.currentUser" class="login-notification deep-purple lighten-4 card">
+<div class="card-content">
 You can only comment to topics once logged in!
 
-Do not have an account? Sign up here!
+Do not have an account?
+</div>
+<div class="action"> <a href="/" class="waves-effect deep-purple waves-light btn pulse">Sign me up!</a>
+</div>
 </div>
 
-<!-- form to add new topics -->
-<div class="add-new-comment">
-	<form class="new-coment" ng-show="$ctrl.currentUser">
-		<input ng-model='$ctrl.comment' type='text' name='text' placeholder="Your comment"/>
-		<button ng-click='$ctrl.addComment($ctrl.comment)'/>
-	    Submit
-		</button>
-	</form>
+<!-- form to add new comments -->
+<div ng-show="$ctrl.currentUser" class="card deep-purple lighten-5">  
+	<!-- close button -->
+    <a ui-sref="discussion({topicId: $ctrl.topicId})"
+		   class="btn-floating close right"><i class="fa fa-times" aria-hidden="true"></i>
+    </a>
+    <!-- add comment -->
+	<div class="add-new-comment card-content">
+
+		<form class="new-coment" ng-show="$ctrl.currentUser">
+			<textarea ng-model='$ctrl.comment' name='text' class="materialize-textarea" placeholder="Your comment"></textarea>
+			<button class="btn waves-effect waves-light" type="submit" name="action" ng-click='$ctrl.addComment($ctrl.comment)'/>
+		    Submit<i class="material-icons right">send</i>
+			</button>
+		</form>
+	</div>
 </div>

@@ -16,11 +16,49 @@
 </a>
 
 <ui-view></ui-view> -->
+<div class="row filter-topics">
+	<div class="col s12">
+	  <div class="card deep-purple lighten-5">
+	    <div class="card-content black-text">
+	      <span class="card-title teal-text">Filter topics</span>
+	    	<form>
+	    	    <div class="row">
+	    	        <div class="col s6">
+	    	        <p class="filter-title">Filter options</p>
+					<p ng-click="$ctrl.filterOptions('byMe')">
+				        <input ng-model="$ctrl.addedByMe" type="checkbox" class="filled-in" id="added-by-me" checked="checked" />
+			            <label for="added-by-me">Added by me</label>
+			        </p>
+					<p ng-click="$ctrl.filterOptions('thisMonth')">
+				        <input type="checkbox" class="filled-in" id="this-month" checked="checked" />
+			            <label for="this-month">Added this month</label>
+			        </p>
+			        <p ng-click="$ctrl.filterOptions('thisYear')">
+				        <input type="checkbox" class="filled-in" id="this-year" checked="checked" />
+			            <label for="this-year">Added this year</label>
+			        </p>
+			        </div>
+			        <div class="col s6">
+				        <p class="filter-title">Filter by time</p>
+					    <p ng-click="$ctrl.sortByTime('newest')">
+					      <input name="time" type="radio" id="new" />
+					      <label for="new">Latest added</label>
+					    </p>
+					    <p ng-click="$ctrl.sortByTime('oldest')">
+					      <input name="time" type="radio" id="old" />
+					      <label for="old">Oldest</label>
+					    </p>
+				    </div>
+		    </form>
+	    </div>
+	  </div>
+	</div>
+</div>
 
 
  
 <ul>
-	<li ng-repeat="topic in $ctrl.topics"
+	<li ng-repeat="topic in $ctrl.topicsToShow"
 	    ui-sref="topic-details({topicId: topic._id})">
 	    <div class="card topic-card">
             <div class="card-content black-text">

@@ -9,6 +9,7 @@ class ForumTopicsCtrl {
 	constructor($scope) {
 	   $scope.viewModel(this);
        topicsCtrl = this;
+       topicsCtrl.topicsToShow = [];
 
        topicsCtrl.subscribe('topics');
 
@@ -31,6 +32,8 @@ class ForumTopicsCtrl {
             }
 
        })
+
+       topicsCtrl.topicsToShow = topicsCtrl.topics;
     }
 
     /* addTopic function
@@ -62,6 +65,61 @@ class ForumTopicsCtrl {
             }
         });
     }
+
+    sortByTime(order){
+        if(order === 'newest'){
+            console.log('new');
+            topicsCtrl.topicsToShow = topicsCtrl.topics.sort(function(a,b){
+                if(a.createdAt > b.createdAt){
+                    return -1
+                }else{
+                    if(a.createdAt == b.createdAt){
+                        return 0;
+                    }else{
+                        return 1;
+                    }
+                }
+            });
+            console.log("sorted - newest");
+            console.log(topicsCtrl.topicsToShow);
+        }
+        if(order === 'oldest'){
+            console.log('old');
+            topicsCtrl.topicsToShow = topicsCtrl.topics.sort(function(a,b){
+                if(a.createdAt < b.createdAt){
+                    return -1
+                }else{
+                    if(a.createdAt == b.createdAt){
+                        return 0;
+                    }else{
+                        return 1;
+                    }
+                }
+            });
+            console.log("sorted - oldest");
+            console.log(topicsCtrl.topicsToShow);
+        }
+    }
+
+    filterOptions(option){
+        if(option === 'byMe'){
+
+            var checked = $('input#added-by-me').prop('checked');
+        
+            if(checked){
+                topicsCtrl.topicsToShow = topicsCtrl.topicsToShow
+                                          .filter(function(topic){
+                                              return topic.owner == Meteor.user()._id;
+                                          });
+                console.log("filtered - added by me");
+            } else {
+                topicsCtrl.topicsToShow = topicsCtrl.topics;
+                console.log("filtered - added by me -- disabled");
+            }
+
+        }
+    }
+
 }
  
 export default angular.module('forumTopics', [

@@ -21,8 +21,8 @@ Do not have an account?
     <div class="card-content">
 		<div class="add-new-topic">
 			<form class="new-topic" ng-show="$ctrl.currentUser">
-				<input ng-model='$ctrl.topicName' type='text' name='text' placeholder="Topic name"/>
-				<input ng-model='$ctrl.topicTag' type='text' name='text' placeholder="Topic tag"/>
+				<input ng-model='$ctrl.topicName' class="custom-input" type='text' name='text' placeholder="Topic name"/>
+				<input ng-model='$ctrl.topicTag' class="custom-input" type='text' name='text' placeholder="Topic tag"/>
 				<button ng-click='$ctrl.addTopic($ctrl.topicName,$ctrl.topicTag)' class="btn waves-effect waves-light" type="submit"/>
 			    Submit<i class="material-icons right">send</i>
 				</button>

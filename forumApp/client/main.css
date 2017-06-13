@@ -187,6 +187,22 @@ a.close{
   margin-top: 15px;
 }
 
+/*placeholder*/
+/*::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder,
+:-moz-placeholder,
+::placeholder,*/
+/*input[type="text"].custom-input::-webkit-input-placeholder*/
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder{ 
+  color: #1a1a1a !important;
+  font-style: italic;
+
+  /*dark gray*/
+}
+
+
 
 /* ------------------- topics.css ----------------*/
 .topic-card{
@@ -303,4 +319,10 @@ button.delete {
 .login-notification .action{
   margin-left: 30px;
   margin-top: -20px;
+}
+
+
+/* ------------- filter topics ----------- */
+.filter-title{
+  padding-bottom: 10px;
 }

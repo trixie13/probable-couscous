@@ -202,6 +202,9 @@ textarea::-webkit-input-placeholder{
   /*dark gray*/
 }
 
+.margin-top{
+  margin-top: 20px;
+}
 
 
 /* ------------------- topics.css ----------------*/
@@ -231,6 +234,15 @@ button.delete {
   right: 15px;
 }
 
+.first-comment{
+  font-size: 1.3em;
+}
+
+.sadface{
+    padding-top: 10px;
+    text-align: center;
+    display: block;
+}
 
 
 /* ------------------- addNewComment.css ----------------*/

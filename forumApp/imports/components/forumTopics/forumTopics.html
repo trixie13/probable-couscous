@@ -29,14 +29,14 @@
 				        <input ng-model="$ctrl.addedByMe" type="checkbox" class="filled-in" id="added-by-me" checked="checked" />
 			            <label for="added-by-me">Added by me</label>
 			        </p>
-					<p ng-click="$ctrl.filterOptions('thisMonth')">
+					<!-- <p ng-click="$ctrl.filterOptions('thisMonth')">
 				        <input type="checkbox" class="filled-in" id="this-month" checked="checked" />
 			            <label for="this-month">Added this month</label>
 			        </p>
 			        <p ng-click="$ctrl.filterOptions('thisYear')">
 				        <input type="checkbox" class="filled-in" id="this-year" checked="checked" />
 			            <label for="this-year">Added this year</label>
-			        </p>
+			        </p> -->
 			        </div>
 			        <div class="col s6">
 				        <p class="filter-title">Filter by time</p>
@@ -49,6 +49,24 @@
 					      <label for="old">Oldest</label>
 					    </p>
 				    </div>
+			    </div>
+			    <div class="row">
+			         <div class="col s6">
+				        <p ng-click="$ctrl.filterByTag('name')">
+					        <input type="checkbox" class="filled-in" id="topic-tags"/>
+				            <label for="topic-tags">Filter by tags</label>
+			            </p>
+			            <div ng-if="$ctrl.tagFilter" class="animate-if margin-top">
+			                <form action="#">
+				                <p ng-repeat="tag in $ctrl.tags track by $index"
+				                   ng-click="$ctrl.filterTag($event)">
+				                   <input name="tags" type="radio" id="{{tag}}"/>
+							       <label for="{{tag}}">{{tag}}</label>
+				                </p>
+			                </form>
+		                </div>
+			         </div>
+			    </div>
 		    </form>
 	    </div>
 	  </div>

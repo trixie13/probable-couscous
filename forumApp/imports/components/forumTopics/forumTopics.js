@@ -10,6 +10,8 @@ class ForumTopicsCtrl {
 	   $scope.viewModel(this);
        topicsCtrl = this;
        topicsCtrl.topicsToShow = [];
+       topicsCtrl.tags = [];
+       topicsCtrl.tagFilter = false;
 
        topicsCtrl.subscribe('topics');
 
@@ -32,8 +34,10 @@ class ForumTopicsCtrl {
             }
 
        })
-
+       
+       //populate topicsToShow array
        topicsCtrl.topicsToShow = topicsCtrl.topics;
+
     }
 
     /* addTopic function
@@ -68,7 +72,7 @@ class ForumTopicsCtrl {
 
     sortByTime(order){
         if(order === 'newest'){
-            console.log('new');
+            // console.log('new');
             topicsCtrl.topicsToShow = topicsCtrl.topics.sort(function(a,b){
                 if(a.createdAt > b.createdAt){
                     return -1
@@ -80,11 +84,11 @@ class ForumTopicsCtrl {
                     }
                 }
             });
-            console.log("sorted - newest");
-            console.log(topicsCtrl.topicsToShow);
+            // console.log("sorted - newest");
+            // console.log(topicsCtrl.topicsToShow);
         }
         if(order === 'oldest'){
-            console.log('old');
+            // console.log('old');
             topicsCtrl.topicsToShow = topicsCtrl.topics.sort(function(a,b){
                 if(a.createdAt < b.createdAt){
                     return -1
@@ -96,8 +100,8 @@ class ForumTopicsCtrl {
                     }
                 }
             });
-            console.log("sorted - oldest");
-            console.log(topicsCtrl.topicsToShow);
+            // console.log("sorted - oldest");
+            // console.log(topicsCtrl.topicsToShow);
         }
     }
 
@@ -111,13 +115,50 @@ class ForumTopicsCtrl {
                                           .filter(function(topic){
                                               return topic.owner == Meteor.user()._id;
                                           });
-                console.log("filtered - added by me");
+                // console.log("filtered - added by me");
             } else {
                 topicsCtrl.topicsToShow = topicsCtrl.topics;
-                console.log("filtered - added by me -- disabled");
+                // console.log("filtered - added by me -- disabled");
             }
 
         }
+    }
+
+    filterByTag(tag){
+       var checked = $('input#topic-tags').prop('checked');
+       // console.log(checked);
+
+       if(checked){
+
+           //populate topicsTags array
+           for(i = 0; i < topicsCtrl.topicsToShow.length; i++ ){
+            
+                if(!topicsCtrl.tags.includes(topicsCtrl.topicsToShow[i].tag))
+                    topicsCtrl.tags.push(topicsCtrl.topicsToShow[i].tag);       
+           }
+           topicsCtrl.tagFilter = true;
+           // console.log(topicsCtrl.tagFilter);
+           // console.log(topicsCtrl.tags);
+
+       }else{
+
+            topicsCtrl.tagFilter = false;
+            topicsCtrl.tags = [];
+            // console.log("clear");
+       }
+    }
+
+    filterTag(event){
+        var tagToFilter = event.target.id;
+        // console.log(tagToFilter);
+
+        topicsCtrl.topicsToShow = topicsCtrl.topics;
+        topicsCtrl.topicsToShow = topicsCtrl.topicsToShow
+                          .filter(function(topic){
+                              return topic.tag == tagToFilter;
+                          });
+
+
     }
 
 }
